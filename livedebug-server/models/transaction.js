@@ -10,11 +10,11 @@ const transactionSchema = new Schema({
     require: [ true, 'amount is required']
   },
   from: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'Account',
   },
   to: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: Schema.Types.ObjectId,
     ref: 'Account',
     require: [ true, 'Destination account must fill']
   }

@@ -11,8 +11,8 @@ const accountSchema = new Schema({
     min: [ 200000, 'Minimal balance 200000']
   },
   userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'user'
+    type: Schema.Types.ObjectId,
+    ref: 'User'
   }
 })
 

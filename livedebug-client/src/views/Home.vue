@@ -16,12 +16,10 @@
           :occupation="user.occupation"
           :stats="user.stats"
           :picture="user.images"
-          @detail="seeProject"
+          @click="seeProject(user.behanceId)"
         />
       </div>
     </div>
-
-    <routing-view @myFavorite="myFavorite"/>
   </div>
 </template>
 
@@ -39,7 +37,8 @@ export default {
   },
 
   components: {
-    User
+    User,
+    
   },
 
   methods: {
@@ -63,9 +62,7 @@ export default {
   },
 
   mounted () {
-    this.fetchUser().then(data => {
-      this.isLoading = false
-    })
+    this.fetchUser()
   }
 }
 </script>

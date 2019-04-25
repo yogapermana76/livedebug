@@ -4,16 +4,19 @@ const jwt = require('../helpers/token');
 
 class UserController {
   static register(req, res) {
+    console.log(req.body, '@@@@@@@@@@@')
     let user = {
       email: req.body.email,
       password: req.body.password
     };
-
+    
+    console.log(user, '############')
     User.create(user)
     .then(user => {
       res.status(201).json(user);
     })
     .catch(err => {
+      console.log('masuk error ============')
       if (err.errors.email) {
         res.status(409).json({ err: err.errors.email.reason });
       } else if(err.errors.password) {
@@ -26,7 +29,9 @@ class UserController {
 
   static login(req, res) {
     User
-     .findOne(req.body.email)
+     .findOne({
+       email: req.body.email 
+      })
      .then(user => {
        if (user) {
          if (regis.checkPassword(req.body.password, user.password)) {
@@ -43,10 +48,12 @@ class UserController {
            })
          }
        } else {
+         console.log('masuk ke else')
          res.status(500).json({ err: "User not found" });
        }
      })
      .catch(err => {
+       console.log(err, '========= masuk catch')
        res.status(500).json(err);
      })
   }

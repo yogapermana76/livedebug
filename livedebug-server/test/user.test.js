@@ -15,7 +15,7 @@ after(done => {
 
 let verificationCode = '';
 
-describe('Users', function() {
+describe.only('Users', function() {
   describe('POST /register', function() {
 
     it('should return status code 201 with response body created user', function(done) {
@@ -29,6 +29,7 @@ describe('Users', function() {
        .post(`/register`)
        .send(user)
        .end(function(err, res) {
+         console.log(res.body, '===== testing')
          expect(err).to.be.null;
 
          expect(res).to.have.status(201);
