@@ -1,0 +1,27 @@
+* {
+  font-family: 'proxima-nova';
+}
+
+.text-dark {
+  color: hsl(0, 0%, 13%);
+}
+
+.w-49 {
+  width: 49%;
+}
+
+.w-30 {
+  width: 30%;
+}
+
+.mr-2-p {
+  margin-right: 1%;
+}
+
+.fill-indigo {
+  fill: #6574cd;
+}
+
+.fill-transparent {
+  fill: transparent;
+}

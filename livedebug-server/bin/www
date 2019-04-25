@@ -1,0 +1,12 @@
+const app = require('../app');
+const http = require('http');
+
+let port = 3000;
+
+app.set('port', port);
+
+var server = http.createServer(app);
+
+server.listen(port, function() {
+  console.log(`listen on port ${port}`)
+});
